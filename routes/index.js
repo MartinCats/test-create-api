@@ -27,7 +27,7 @@ router.get('/about', (req,res)=>{
         form requirement <br/>
         *input name = name <br/>
         *input name = price <br/>
-        *input name = description
+        *input name = description <br/> 
         <br/> 
 
         'URL/update/<product_id>' <br/> 
