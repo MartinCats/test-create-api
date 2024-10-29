@@ -13,6 +13,17 @@ app.get('/', (req,res)=>{
     res.send('testing api')
 });
 
+app.get('/get', (req,res)=>{
+    res.send('what your to get')
+});
+
+app.get('/about', (req,res)=>{
+    res.send(`
+        '/getall' for get all product in database,
+        '/get/<id>' for get only one product in database
+        `)
+});
+
 app.get('/getall', async(req,res)=>{
     try {
         const result = await db.find({});
