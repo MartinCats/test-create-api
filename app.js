@@ -9,6 +9,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
+app.get('/', (req,res)=>{
+    res.send('testing api')
+});
+
 app.get('/getall', async(req,res)=>{
     try {
         const result = await db.find({});
