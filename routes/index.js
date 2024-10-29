@@ -11,13 +11,33 @@ router.get('/get', (req,res)=>{
 
 router.get('/about', (req,res)=>{
     res.send(`
-        '/getall' for get all product in database, <br/ >
-        '/get/<product_id>' for get only one product in database (example '/get/aa1111','/get/bc2222') <br/ >
-        '/product/create' for create new product to database <br/> 
+        'URL/getall' <br/> 
+        method = GET <br/> 
+        for get all product in database, <br/ >
+        <br/> 
+
+        'URL/get/<product_id>' <br/> 
+        method = GET <br/> 
+        for get only one product in database (example 'URL/get/aa1111','URL/get/bc2222') <br/ >
+        <br/> 
+
+        'URL/create' <br/>
+        method = POST <br/> 
+        for create new product to database <br/> 
         form requirement <br/>
         *input name = name <br/>
         *input name = price <br/>
         *input name = description
+        <br/> 
+
+        'URL/update/<product_id>' <br/> 
+        method = PUT <br/> 
+        for update or edit product in database <br/> 
+        <br/> 
+
+        'URL/delete' <br/> 
+        method = DELETE <br/> 
+        for delete product in database <br/> 
         `)
 });
 
