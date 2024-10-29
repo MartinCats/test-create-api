@@ -55,3 +55,5 @@ app.post('/test/create', async(req,res)=>{
 app.listen(port, () => {
     console.log('api test server STARTO');
 })
+
+module.exports = app;
