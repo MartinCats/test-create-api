@@ -20,7 +20,8 @@ app.get('/get', (req,res)=>{
 app.get('/about', (req,res)=>{
     res.send(`
         '/getall' for get all product in database,
-        '/get/<id>' for get only one product in database
+        '/get/<product_id>' for get only one product in database
+        example '/get/P-001','/get/P-002'
         `)
 });
 
@@ -37,6 +38,9 @@ app.get('/get/:id', async(req,res)=>{
     try {
         const id = req.params.id
         const result = await db.findOne({ id: id });
+        if(result === null){
+            return res.status(404).json('product not found')
+        }
         res.status(200).json(result);
     } catch (error) {
         res.status(500).json(err.message);
