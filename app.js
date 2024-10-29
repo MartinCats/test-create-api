@@ -1,71 +1,16 @@
-require('dotenv').config()
+require('dotenv').config();
 const express = require('express');
-const app = express()
+const app = express();
 const port = process.env.PORT || 3000 ;
-const cors = require('cors')
-const db = require('./models/products')
+const cors = require('cors');
+const db = require('./models/products');
+const routes = require('./routes');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.get('/', (req,res)=>{
-    res.send('testing api')
-});
-
-app.get('/get', (req,res)=>{
-    res.send('what your to get')
-});
-
-app.get('/about', (req,res)=>{
-    res.send(`
-        '/getall' for get all product in database,
-        '/get/<product_id>' for get only one product in database
-        example '/get/P-001','/get/P-002'
-        `)
-});
-
-app.get('/getall', async(req,res)=>{
-    try {
-        const result = await db.find({});
-        res.status(200).json(result);
-    } catch (error) {
-        res.status(500).json(err.message);
-    }
-})
-
-app.get('/get/:id', async(req,res)=>{
-    try {
-        const id = req.params.id
-        const result = await db.findOne({ id: id });
-        if(result === null){
-            return res.status(404).json('product not found')
-        }
-        res.status(200).json(result);
-    } catch (error) {
-        res.status(500).json(err.message);
-    }
-})
-
-app.post('/test/create', async(req,res)=>{
-    try {
-        const { name, price, description } = req.body
-        const id = await db.countDocuments()+1;
-        const pad =(num)=> String(num).padStart(3,'0');
-        const newId = `P-${pad(id)}`
-
-        const create = new db({
-            id:newId,
-            name: name,
-            price: price,
-            description: `testing call ${name} and ${description}`
-        })
-        const result = await create.save()
-        res.status(200).json(result)
-    } catch (error) {
-        res.status(500).json({ message: error.message })
-    }
-});
+app.use(routes);
 
 app.listen(port, () => {
     console.log('api test server STARTO');
