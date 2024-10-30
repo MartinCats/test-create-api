@@ -1,45 +1,51 @@
-const router = require('express').Router();
+const express = require('express');
+const router = express.Router();
 const productRouter = require('./product.router');
 
-router.get('/', (req,res)=>{
-    res.send('testing api')
+
+router.get('/', (req, res) => {
+    res.send('<h1>API Testing</h1><p>This is a test API endpoint.</p>');
 });
 
-router.get('/get', (req,res)=>{
-    res.send('what your to get')
+
+router.get('/get', (req, res) => {
+    res.send('<h1>Get Request</h1><p>What do you want to get?</p>');
 });
 
-router.get('/about', (req,res)=>{
+
+router.get('/about', (req, res) => {
     res.send(`
-        'URL/getall' <br/> 
-        method = GET <br/> 
-        for get all product in database, <br/ >
-        <br/> 
-
-        'URL/get/product_id' <br/> 
-        method = GET <br/> 
-        for get only one product in database (example 'URL/get/aa1111','URL/get/bc2222') <br/ >
-        <br/> 
-
-        'URL/create' <br/>
-        method = POST <br/> 
-        for create new product to database <br/> 
-        form requirement <br/>
-        *input name = name <br/>
-        *input name = price <br/>
-        *input name = description <br/> 
-        <br/> 
-
-        'URL/update/product_id' <br/> 
-        method = PUT <br/> 
-        for update or edit product in database <br/> 
-        <br/> 
-
-        'URL/delete/product_id' <br/> 
-        method = DELETE <br/> 
-        for delete product in database <br/> 
-        `)
+        <h2>API Endpoints</h2>
+        <ul>
+            <li>
+                <strong>GET</strong> <code>/getall</code><br />
+                Get all products in the database.
+            </li>
+            <li>
+                <strong>GET</strong> <code>/get/:product_id</code><br />
+                Get a specific product by ID (e.g., <code>/get/aa1111</code>, <code>/get/bc2222</code>).
+            </li>
+            <li>
+                <strong>POST</strong> <code>/create</code><br />
+                Create a new product in the database. Required fields:
+                <ul>
+                    <li><code>name</code>: Product name</li>
+                    <li><code>price</code>: Product price</li>
+                    <li><code>description</code>: Product description</li>
+                </ul>
+            </li>
+            <li>
+                <strong>PUT</strong> <code>/update/:product_id</code><br />
+                Update or edit a product in the database.
+            </li>
+            <li>
+                <strong>DELETE</strong> <code>/delete/:product_id</code><br />
+                Delete a product from the database.
+            </li>
+        </ul>
+    `);
 });
+
 
 productRouter(router);
 
