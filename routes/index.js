@@ -30,12 +30,12 @@ router.get('/about', (req,res)=>{
         *input name = description <br/> 
         <br/> 
 
-        'URL/update/<product_id>' <br/> 
+        'URL/update/product_id' <br/> 
         method = PUT <br/> 
         for update or edit product in database <br/> 
         <br/> 
 
-        'URL/delete' <br/> 
+        'URL/delete/product_id' <br/> 
         method = DELETE <br/> 
         for delete product in database <br/> 
         `)
