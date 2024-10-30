@@ -16,7 +16,7 @@ router.get('/about', (req,res)=>{
         for get all product in database, <br/ >
         <br/> 
 
-        'URL/get/<product_id>' <br/> 
+        'URL/get/product_id' <br/> 
         method = GET <br/> 
         for get only one product in database (example 'URL/get/aa1111','URL/get/bc2222') <br/ >
         <br/> 
