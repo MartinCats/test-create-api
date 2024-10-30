@@ -4,7 +4,14 @@ const productRouter = require('./product.router');
 
 
 router.get('/', (req, res) => {
-    res.send('<h1>API Testing</h1><p>This is a test API endpoint.</p>');
+    res.send(`
+        <h1>Testing API</h1>
+        <p>This is the home page. You can access the following:</p>
+        <ul>
+            <li><a href="/getall">All API</a></li>
+            <li><a href="/about">About API</a></li>
+        </ul>
+    `);
 });
 
 
