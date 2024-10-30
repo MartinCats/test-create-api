@@ -26,11 +26,11 @@ router.get('/about', (req, res) => {
         <ul>
             <li>
                 <strong>GET</strong> <code>/getall</code><br />
-                Get all products in the database.
+                Get all products in the database.<br/>
             </li>
             <li>
                 <strong>GET</strong> <code>/get/:product_id</code><br />
-                Get a specific product by ID (e.g., <code>/get/aa1111</code>, <code>/get/bc2222</code>).
+                Get a specific product by ID (e.g., <code>/get/aa1111</code>, <code>/get/bc2222</code>).<br/>
             </li>
             <li>
                 <strong>POST</strong> <code>/create</code><br />
@@ -39,17 +39,20 @@ router.get('/about', (req, res) => {
                     <li><code>name</code>: Product name</li>
                     <li><code>price</code>: Product price</li>
                     <li><code>description</code>: Product description</li>
-                </ul>
+                </ul><br/>
             </li>
             <li>
                 <strong>PUT</strong> <code>/update/:product_id</code><br />
-                Update or edit a product in the database.
+                Update or edit a product in the database.<br/>
             </li>
             <li>
                 <strong>DELETE</strong> <code>/delete/:product_id</code><br />
                 Delete a product from the database.
             </li>
         </ul>
+        <br/>
+        <br/>
+        <li><a href="/">Home</a></li>
     `);
 });
 
