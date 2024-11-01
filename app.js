@@ -13,7 +13,7 @@ app.use(cors());
 app.use(routes);
 
 app.listen(port, () => {
-    console.log('api test server STARTO');
+    console.log(`server run on port ${port}`);
 })
 
 module.exports = app;
